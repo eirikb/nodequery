@@ -1,13 +1,13 @@
 var cars = [{
-	name: 'Skåda',
+	name: 'Opel',
 	price: 1000
 },
 {
-	name: 'Bimmer',
+	name: 'Bmw',
 	price: 3000
 }];
 
-exports.ready = function() {
+$(function() {
 	$p = $('p');
 
 	$('span').html(cars.length);
@@ -15,5 +15,5 @@ exports.ready = function() {
 		var $section = $('<section>').append($('<p>').text('Name: ' + car.name)).append($('<p>').text('Price: ' + car.price));
 		$p.after($section);
 	});
-};
+});
 
