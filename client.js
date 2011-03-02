@@ -8,6 +8,7 @@ var cars = [{
 }];
 
 $(function() {
+    console.log($('p').html());
 	$p = $('p');
 
 	$('span').html(cars.length);
