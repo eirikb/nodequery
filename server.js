@@ -5,6 +5,7 @@ dir = process.cwd(),
 fn;
 
 jsdom.env('<html><body></body></html>', [dir + 'jquery-1.5.min.js'], function(errors, window) {
+    console.log(errors);
 	global.$ = window.$;
 	$.fn.ready = function(f) {
 		fn = f;
@@ -17,6 +18,7 @@ http.createServer(function(req, res) {
 		'Content-Type': 'text/html'
 	});
 	jsdom.env(markup, [dir + 'jquery-1.5.min.js'], function(errors, window) {
+        console.log(errors)
 		global.$ = window.$;
 		fn();
 		res.end(window.document.innerHTML);
