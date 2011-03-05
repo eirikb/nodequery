@@ -4,7 +4,7 @@ markup = require('fs').readFileSync('index.html') + '',
 dir = process.cwd(),
 fn;
 
-jsdom.env('<html><body></body></html>', [dir + '/jquery-1.5.min.js'], function(errors, window) {
+jsdom.env('<html><body></body></html>', [dir + 'jquery-1.5.min.js'], function(errors, window) {
 	global.$ = window.$;
 	$.fn.ready = function(f) {
 		fn = f;
@@ -16,7 +16,7 @@ http.createServer(function(req, res) {
 	res.writeHead(200, {
 		'Content-Type': 'text/html'
 	});
-	jsdom.env(markup, [dir + '/jquery-1.5.min.js'], function(errors, window) {
+	jsdom.env(markup, [dir + 'jquery-1.5.min.js'], function(errors, window) {
 		global.$ = window.$;
 		fn();
 		res.end(window.document.innerHTML);
