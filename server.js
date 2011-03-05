@@ -1,6 +1,7 @@
 var http = require('http'),
 jsdom = require('jsdom'),
-markup = require('fs').readFileSync('index.html') + '';
+markup = require('fs').readFileSync('index.html') + '',
+fn;
 
 jsdom.env('<html><body></body></html>', ['http://code.jquery.com/jquery-1.5.min.js'], function(errors, window) {
 	global.$ = window.$;
