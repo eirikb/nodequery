@@ -1,17 +1,9 @@
-var cars = [{
-	name: 'Opel',
-	price: 1000
-},
-{
-	name: 'Bmw',
-	price: 3000
-}];
+var data = JSON.parse(require('fs').readFileSync(__dirname + '/index.txt'));
 
 $(function() {
 	$p = $('p');
 
-	$('span').html(cars.length);
-	$.each(cars, function(i, car) {
+	$.each(data, function(i, car) {
 		var $section = $('<section>').append($('<p>').text('Name: ' + car.name)).append($('<p>').text('Price: ' + car.price));
 		$p.after($section);
 	});
