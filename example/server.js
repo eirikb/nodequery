@@ -7,18 +7,12 @@ nodequery = require(path.normalize(__dirname + '/../lib/nodequery'));
 nodequery.setup({
 	dir: dir + 'pages',
 	jQuery: dir + 'jquery-1.5.min.js',
-	beforeFunctions: [
-	function() {
+	before: function() {
 		$('body').append($('<img>').attr('src', 'http://google.no/images/logos/ps_logo2.png'));
 	},
-	function() {
-		$('body').append($('<img>').attr('src', 'http://google.no/images/logos/ps_logo2.png'));
-	}],
-	afterFunctions: [
-	function() {
-		$('body').append($('<img>').attr('src', 'http://google.no/images/logos/ps_logo2.png'));
-	}]
-
+	after: function() {
+		$('body').append('<h1>Hey</h1>');
+	}
 });
 
 http.createServer(function(req, res) {
