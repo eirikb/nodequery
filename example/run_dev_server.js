@@ -29,7 +29,7 @@ dev_server = {
         sys.debug('DEVSERVER: Starting server');
         self.watchFiles();
 
-        this.process = child_process.spawn(process.ARGV[0], ['example/server.js']);
+        this.process = child_process.spawn(process.ARGV[0], ['server.js']);
 
         this.process.stdout.addListener('data', function (data) {
             process.stdout.write(data);
@@ -54,7 +54,7 @@ dev_server = {
     "watchFiles": function() {
         var self = this;
 
-        child_process.exec('find . | grep "\.js$"', function(error, stdout, stderr) {
+        child_process.exec('find .', function(error, stdout, stderr) {
             var files = stdout.trim().split("\n");
 
             files.forEach(function(file) {

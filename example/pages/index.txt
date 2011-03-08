@@ -1,2 +1,0 @@
-[{"name":"Opel","price":1000},{"name":"Bmw","price":3000}]
-

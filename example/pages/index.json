@@ -1,0 +1,19 @@
+[
+    {
+        "title": "Intro",
+        "content": [
+                    "<p>When working with jQuery, would you prefer doing</p>",
+                    "<pre data-brush=\"JScript\">&lt;a href=\"#\" onclick=\"someFunction();return false;\"&gt;test&lt;/a&gt;</pre>",
+                    "<p>Or do something like this</p>",
+                    "<pre data-brush=\"JScript\">$(function() {",
+                    "   $('a').click(function() {",
+                    "       someFunction();",
+                    "       return false;",
+                    "   });",
+                    "});</pre>",
+                    "<p>I would personally without doubt choose the latter, this is how I love using jQuery.",
+                    "Listening to events and modifying the DOM externally from an included script file.</p>"
+                   ]
+    }
+]
+

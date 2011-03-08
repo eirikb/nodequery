@@ -17,16 +17,18 @@ serveStatic = function(href, res) {
 		}
 	});
 };
+require.paths.push(path.join(__dirname, 'syntaxhighlighter/scripts/'));
 
 nodequery.setup({
 	dir: dir + 'pages',
 	jQuery: dir + 'jquery-1.5.min.js',
 	before: function() {
-		$('head').append('<link href="/static/nodequery.css" rel="stylesheet">');
-		$('head').append('<link href="http://fonts.googleapis.com/css?family=Cantarell" rel="stylesheet">');
-		var $header = $('<div>').
-		append('<img src="/static/jquery.png"><span class="plus">+</span><img src="/static/nodejs.jpg" width="200" height="60">'),
-		$nav = $('<ul class="nav">'),
+		$('head').append('<link href="/static/nodequery.css" rel="stylesheet">').
+		append('<link href="http://fonts.googleapis.com/css?family=Cantarell" rel="stylesheet">').
+		append('<link href="/static/shCoreDefault.css" rel="stylesheet">');
+		var $header = $('div.header').
+		append('<img src="/static/nodejs.jpg" width="200" height="60"><span class="plus">+</span><img src="/static/jquery.png">'),
+		$nav = $('ul.nav'),
 		addNav = function(name, url) {
 			$nav.append('<li><a href="' + url + '">' + name + '</a></li>');
 		};
@@ -36,6 +38,19 @@ nodequery.setup({
 		$header.append($nav);
 		//$nav.after($header);
 		$('div.wrapper').prepend($header);
+		$('.author > span').text('eirikb@eirikb.no');
+	},
+	after: function() {
+		var shSyntaxHighlighter = require('shCore').SyntaxHighlighter;
+		$('pre').each(function(i, e) {
+			var $e = $(e),
+			sh = require('shBrush' + $e.data('brush')).Brush,
+			brush = new sh();
+			brush.init({
+				toobar: false
+			});
+			$e.html(brush.getHtml($e.html()));
+		});
 	}
 });
 
@@ -47,7 +62,7 @@ http.createServer(function(req, res) {
 		nodequery.request(reqPath, function(error, result) {
 			if (error === null) {
 				res.writeHead(200, {
-					'Content-Type': 'text/html'
+					'Content-Type': 'text/html; charset=UTF-8'
 				});
 				// The DOM stripped away doctype?!
 				res.end('<!DOCTYPE html>' + result);
