@@ -17,7 +17,11 @@ serveStatic = function(href, res) {
 		}
 	});
 };
+// This is used to load all synta-scripts using CommonJS
 require.paths.push(path.join(__dirname, 'syntaxhighlighter/scripts/'));
+// It seems XRegExp is not included properly for shXmlBrush, doing a simple hack
+eval(fs.readFileSync('xregexp.js') + '');
+global.XRegExp = XRegExp;
 
 nodequery.setup({
 	dir: dir + 'pages',
@@ -64,13 +68,14 @@ http.createServer(function(req, res) {
 				res.writeHead(200, {
 					'Content-Type': 'text/html; charset=UTF-8'
 				});
-				// The DOM stripped away doctype?!
-				res.end('<!DOCTYPE html>' + result);
+				// The DOM stripped away doctype?! - Don't shoot me!
+				res.end('<!DOCTYPE html>\n' + result);
 			} else {
 				res.writeHead(404);
 				res.end();
 			}
 		});
 	}
-}).listen(8749);
+//}).listen(8749);
+}).listen(8000);
 

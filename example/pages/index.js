@@ -1,16 +1,20 @@
 var data = JSON.parse(require('fs').readFileSync(__dirname + '/index.json'));
 
 $(function() {
-	$p = $('p');
+	var $content = $('.content');
 
 	$.each(data, function(i, part) {
-		var $section = $('.content').append('<h2>' + part.title + '</h2>'),
-        text = '';
-        $.each(part.content, function(i, line) {
-            text += line + '\n';
-        });
-        $section.append(text);
-		$p.after($section);
+		var text = '';
+		$content.append('<h2>' + part.title + '</h2>');
+		$.each(part.content, function(i, line) {
+			text += line + '\n';
+		});
+		$content.append(text);
+		$('a:contains(Home)').addClass('active');
 	});
+
+	var $test = $('<div>').append($('<h2>').text('Proof of concept'));
+	$test.append('<p>This is a <i>proof of concept</i> using an alternative solution to classic templating.<br>' + 'The point is to have a clean and static markup, then do all dynamic code from the outside.<br/>' + 'This is how people usually work with jQuery, and doing the same as templating should be familiar and comforting.</p>');
+	$content.prepend($test);
 });
 
