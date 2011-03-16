@@ -18,17 +18,38 @@
                     "<pre data-brush=\"Xml\">",
                     "&lt;html&gt;",
                     "   &lt;body&gt;",
-                    "       Hello ${params.name}&lt;br&gt;",
-                    "       &lt;g:each in=\"${[1,2,3]}\" var=\"num\"&gt;",
-                    "           &lt;p&gt;Number ${num}&lt;/p&gt;",
-                    "       &lt;/g:each&gt;",
+                    "       &lt;h1 class=\"name\"&gt;Hello ${data.name}&lt;h1&gt;",
+                    "       &lt;div class=\"numbers\"&gt;",
+                    "           &lt;g:each in=\"${[1,2,3]}\" var=\"num\"&gt;",
+                    "               &lt;p&gt;Number ${num}&lt;/p&gt;",
+                    "           &lt;/g:each&gt;",
+                    "       &lt;/div&gt;",
                     "   &lt;/body&gt;",
-                    "&lt;/html&gt;"
+                    "&lt;/html&gt;",
+                    "</pre>"
                    ]
     },
     {
-        "title": "Oh, hai",
-        "content": [ "<p>test</p>"
+        "title": "My proporsal",
+        "content": [
+                    "<p>What if you instead could have two files, one with the static markup like this:</p>",
+                    "<pre data-brush=\"Xml\">",
+                    "&lt;html&gt;",
+                    "   &lt;body&gt;",
+                    "       &lt;h1 class=\"name\"&gt;&lt;h1&gt;",
+                    "       &lt;div class=\"numbers\"&gt;&lt;/div&gt;",
+                    "   &lt;/body&gt;",
+                    "&lt;/html&gt;",
+                    "</pre>",
+                    "<p>And one with jQuery, just like you are used to:</p>",
+                    "<pre data-brush=\"JScript\">$(function() {",
+                    "   $('h1.name').text(data.name);",
+                    "   $([1, 2, 3]).each(function(i, n) {",
+                    "       $('div.numbers').append($('&lt;p&gt;').text('Number ' + n));",
+                    "   });",
+                    "});",
+                    "</pre>",
+                    "<p>This is exactly what nodequery does, all server side!</p>"
         ]
     }
 ]
