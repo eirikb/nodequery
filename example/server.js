@@ -20,7 +20,7 @@ serveStatic = function(href, res) {
 // This is used to load all synta-scripts using CommonJS
 require.paths.push(path.join(__dirname, 'syntaxhighlighter/scripts/'));
 // It seems XRegExp is not included properly for shXmlBrush, doing a simple hack
-eval(fs.readFileSync('xregexp.js') + '');
+eval(fs.readFileSync(__dirname + '/xregexp.js') + '');
 global.XRegExp = XRegExp;
 
 nodequery.setup({
@@ -76,5 +76,5 @@ http.createServer(function(req, res) {
 			}
 		});
 	}
-listen(8749);
+}).listen(8749);
 
