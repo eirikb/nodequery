@@ -3,7 +3,7 @@ url = require('url'),
 path = require('path'),
 fs = require('fs'),
 dir = path.join(__dirname, '/'),
-nodequery = require(path.normalize(__dirname + '/../lib/nodequery')),
+nodequery = require(path.normalize(dir + '../lib/nodequery')),
 // This is a simple simple and horrible hack to serve static files.
 // Should use node-static or similar module, but this is just an example so don't want too many dependencies
 serveStatic = function(href, res) {
@@ -18,9 +18,9 @@ serveStatic = function(href, res) {
 	});
 };
 // This is used to load all synta-scripts using CommonJS
-require.paths.push(path.join(__dirname, 'syntaxhighlighter/scripts/'));
+require.paths.push(dir + 'syntaxhighlighter/scripts/');
 // It seems XRegExp is not included properly for shXmlBrush, doing a simple hack
-eval(fs.readFileSync(__dirname + '/xregexp.js') + '');
+eval(fs.readFileSync(dir + 'xregexp.js') + '');
 global.XRegExp = XRegExp;
 
 nodequery.setup({
