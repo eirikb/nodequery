@@ -17,6 +17,10 @@ serveStatic = function(href, res) {
 		}
 	});
 };
+
+console.log(dir + 'jquery-1.5.min.js');
+console.log(fs.readFileSync(dir + 'jquery-1.5.min.js').length);
+
 // This is used to load all synta-scripts using CommonJS
 require.paths.push(dir + 'syntaxhighlighter/scripts/');
 // It seems XRegExp is not included properly for shXmlBrush, doing a simple hack
