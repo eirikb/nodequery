@@ -1,16 +1,33 @@
+var highlight = require('highlight').Highlight;
+
 var data = JSON.parse(require('fs').readFileSync(__dirname + '/index.json'));
 
 $(function() {
 	var $content = $('.content');
 
+	$(data).each(function() {
+		$content.append('<h2>' + this.title + '</h2>');
+		$(this.content).each(function() {
+			// Hack 
+			[].concat(this.text).forEach(function(line) {
+				if (line) {
+					$content.append($('<p>').text(line));
+				}
+			});
+			var text = '';
+			[].concat(this.code).forEach(function(line) {
+				if (line) {
+					text += line + '\n';
+				}
+			});
+			if (text) {
+				$content.append('<code>' + highlight(text) + '</code>');
+			}
+		});
+		$('a:contains(Home)').addClass('active');
+	});
 	$.each(data, function(i, part) {
 		var text = '';
-		$content.append('<h2>' + part.title + '</h2>');
-		$.each(part.content, function(i, line) {
-			text += line + '\n';
-		});
-		$content.append(text);
-		$('a:contains(Home)').addClass('active');
 	});
 
 	var $test = $('<div>').append($('<h2>').text('Proof of concept'));

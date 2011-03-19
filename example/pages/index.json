@@ -2,36 +2,41 @@
     {
         "title": "Intro",
         "content": [
-                    "<p>When working with jQuery, would you prefer doing</p>",
-                    "<pre data-brush=\"Xml\">&lt;a href=\"#\" onclick=\"someFunction();return false;\"&gt;test&lt;/a&gt;</pre>",
-                    "<p>Or do something like this</p>",
-                    "<pre data-brush=\"JScript\">$(function() {",
-                    "   $('a').click(function() {",
-                    "       someFunction();",
-                    "       return false;",
-                    "   });",
-                    "});</pre>",
-                    "<p>I would personally without doubt choose the latter, this is how I love using jQuery.",
-                    "Listening to events and modifying the DOM externally from an included script file.</p>",
-                    "<p>Now how do you do your server side templating?",
-                    "I bet you do something like this (<a href=\"http://grails.org/doc/latest/guide/6.%20The%20Web%20Layer.html#6.2 Groovy Server Pages\" target=\"_blank\">GSP</a>):",
-                    "<pre data-brush=\"Xml\">",
-                    "&lt;html&gt;",
-                    "   &lt;body&gt;",
-                    "       &lt;h1 class=\"name\"&gt;Hello ${data.name}&lt;h1&gt;",
-                    "       &lt;div class=\"numbers\"&gt;",
-                    "           &lt;g:each in=\"${[1,2,3]}\" var=\"num\"&gt;",
-                    "               &lt;p&gt;Number ${num}&lt;/p&gt;",
-                    "           &lt;/g:each&gt;",
-                    "       &lt;/div&gt;",
-                    "   &lt;/body&gt;",
-                    "&lt;/html&gt;",
-                    "</pre>"
+                        {"text": "When working with jQuery, would you prefer doing"},
+                        {"code": "<a href=\"#\" onclick=\"someFunction();return false;\">test</a>"},
+                        {"text": "Or do something like this"},
+                        {"code": [
+                            "$(function() {",
+                            "   $('a').click(function() {",
+                            "              someFunction();",
+                            "       return false;",
+                            "   });",
+                            "}};"
+                        ]},
+                        {"text": [
+                                "I would personally without doubt choose the latter, this is how I love using jQuery.",
+                                "Listening to events and modifying the DOM externally from an included script file.<br>",
+                                "Now how do you do your server side templating?<br>",
+                                "I bet you do something like this (<a href=\"http://grails.org/doc/latest/guide/6.%20The%20Web%20Layer.html#6.2 Groovy Server Pages\" target=\"_blank\">GSP</a>):"
+                        ]},
+                    {"code": [
+                        "&lt;html&gt;",
+                        "   &lt;body&gt;",
+                        "       &lt;h1 class=\"name\"&gt;Hello ${data.name}&lt;h1&gt;",
+                        "       &lt;div class=\"numbers\"&gt;",
+                        "           &lt;g:each in=\"${[1,2,3]}\" var=\"num\"&gt;",
+                        "               &lt;p&gt;Number ${num}&lt;/p&gt;",
+                        "           &lt;/g:each&gt;",
+                        "       &lt;/div&gt;",
+                        "   &lt;/body&gt;",
+                        "&lt;/html&gt;"
+                        ]}
                    ]
     },
     {
         "title": "My proporsal",
         "content": [
+                    {"text": [
                     "<p>What if you instead could have two files, one with the static markup like this:</p>",
                     "<pre data-brush=\"Xml\">",
                     "&lt;html&gt;",
@@ -50,6 +55,7 @@
                     "});",
                     "</pre>",
                     "<p>This is exactly what nodequery does, all server side!</p>"
+                    ]}
         ]
     }
 ]
