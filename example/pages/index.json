@@ -3,9 +3,11 @@
         "title": "Intro",
         "content": [
                         {"text": "When working with jQuery, would you prefer:"},
-                        {"code": "<a href=\"#\" onclick=\"someFunction();return false;\">test</a>"},
+                        {"code": "html",
+                        "text": "<a href=\"#\" onclick=\"someFunction();return false;\">test</a>"},
                         {"text": "Or something like:"},
-                        {"code": [
+                        {"code": "javascript",
+                        "text": [
                             "$(function() {",
                             "   $('a').click(function() {",
                             "              someFunction();",
@@ -19,7 +21,8 @@
                                 "Now how do you do your server side templating?<br>",
                                 "I bet you do something like this (<a href=\"http://grails.org/doc/latest/guide/6.%20The%20Web%20Layer.html#6.2 Groovy Server Pages\" target=\"_blank\">GSP</a>):"
                         ]},
-                    {"code": [
+                    {"code": "html",
+                    "text": [
                         "<html>",
                         "   <body>",
                         "       <h1 class=\"name\">Hello ${data.name}</h1>",
@@ -37,7 +40,8 @@
         "title": "My proporsal",
         "content": [
                     {"text": "What if you instead could have two files, one with the static markup like this:"},
-                    {"code": [
+                    {"code": "html",
+                    "text": [
                         "<html>",
                         "   <body>",
                         "       <h1 class=\"name\"><h1>",
@@ -46,7 +50,8 @@
                         "</html>"
                     ]},
                     {"text": "And one with jQuery, just like you are used to:"},
-                    {"code": [
+                    {"code": "javascript",
+                    "text": [
                         "$(function() {",
                         "   $('h1.name').text(data.name);",
                         "   $([1, 2, 3]).each(function(i, n) {",
