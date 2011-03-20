@@ -9,7 +9,7 @@ staticFiles = new (require('node-static')).Server('./example', {
 
 nodequery.setup({
 	dir: dir + 'pages',
-	jQuery: dir + 'jquery-1.5.min.js',
+	jQuery: 'http://code.jquery.com/jquery-1.5.min.js',
 	before: function($) {
 		$('head').append('<link href="/static/nodequery.css" rel="stylesheet">').
 		append('<link href="http://fonts.googleapis.com/css?family=Cantarell" rel="stylesheet">').
