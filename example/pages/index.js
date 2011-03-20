@@ -8,16 +8,15 @@ $(function() {
 	$(data).each(function() {
 		$content.append('<h2>' + this.title + '</h2>');
 		$(this.content).each(function() {
-			// Hack 
 			var text = '';
 			[].concat(this.text).forEach(function(line) {
 				if (line) {
 					text += line + '\n';
 				}
 			});
-            if (this.code) {
+			if (this.code) {
 				$content.append($('<pre>').append($('<code class="' + this.code + '">').text(highlight(text))));
-            } else {
+			} else {
 				$content.append($('<p>').text(text));
 			}
 		});
