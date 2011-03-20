@@ -1,7 +1,7 @@
 var http = require('http'),
 url = require('url'),
 path = require('path'),
-dir = path.join('/', path.join(path.dirname(__filename , '/'))),
+dir = path.join('/', path.join(path.dirname(__filename) , '/')),
 nodequery = require(path.normalize(dir + '../lib/nodequery')),
 staticFiles = new (require('node-static')).Server('./example', {
 	cache: false
