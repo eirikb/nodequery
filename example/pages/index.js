@@ -9,20 +9,17 @@ $(function() {
 		$content.append('<h2>' + this.title + '</h2>');
 		$(this.content).each(function() {
 			// Hack 
-			[].concat(this.text).forEach(function(line) {
+            var text = '';
+			[].concat(this.text).concat(this.code).forEach(function(line) {
 				if (line) {
-					$content.append($('<p>').text(line));
+                    text += line + '\n';
 				}
 			});
-			var text = '';
-			[].concat(this.code).forEach(function(line) {
-				if (line) {
-					text += line + '\n';
-				}
-			});
-			if (text) {
+            if (this.text) {
+		    $content.append($('<p>').text(text));
+            } else {
 				$content.append($('<pre>').text(highlight(text)));
-			}
+            }
 		});
 		$('a:contains(Home)').addClass('active');
 	});

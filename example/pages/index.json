@@ -2,16 +2,16 @@
     {
         "title": "Intro",
         "content": [
-                        {"text": "When working with jQuery, would you prefer doing"},
+                        {"text": "When working with jQuery, would you prefer:"},
                         {"code": "<a href=\"#\" onclick=\"someFunction();return false;\">test</a>"},
-                        {"text": "Or do something like this"},
+                        {"text": "Or something like:"},
                         {"code": [
                             "$(function() {",
                             "   $('a').click(function() {",
                             "              someFunction();",
                             "       return false;",
                             "   });",
-                            "}};"
+                            "});"
                         ]},
                         {"text": [
                                 "I would personally without doubt choose the latter, this is how I love using jQuery.",
@@ -22,7 +22,7 @@
                     {"code": [
                         "<html>",
                         "   <body>",
-                        "       <h1 class=\"name\">Hello ${data.name}<h1>",
+                        "       <h1 class=\"name\">Hello ${data.name}</h1>",
                         "       <div class=\"numbers\">",
                         "           <g:each in=\"${[1,2,3]}\" var=\"num\">",
                         "               <p>Number ${num}</p>",
@@ -30,33 +30,32 @@
                         "       </div>",
                         "   </body>",
                         "</html>"
-                        ]}
-                   ]
+                    ]}
+            ]
     },
     {
         "title": "My proporsal",
         "content": [
-                    {"text": [
-                    "<p>What if you instead could have two files, one with the static markup like this:</p>",
-                    "<pre data-brush=\"Xml\">",
-                    "<html>",
-                    "   <body>",
-                    "       <h1 class=\"name\"><h1>",
-                    "       <div class=\"numbers\"></div>",
-                    "   </body>",
-                    "</html>",
-                    "</pre>",
-                    "<p>And one with jQuery, just like you are used to:</p>",
-                    "<pre data-brush=\"JScript\">$(function() {",
-                    "   $('h1.name').text(data.name);",
-                    "   $([1, 2, 3]).each(function(i, n) {",
-                    "       $('div.numbers').append($('<p>').text('Number ' + n));",
-                    "   });",
-                    "});",
-                    "</pre>",
-                    "<p>This is exactly what nodequery does, all server side!</p>"
-                    ]}
-        ]
+                    {"text": "What if you instead could have two files, one with the static markup like this:"},
+                    {"code": [
+                        "<html>",
+                        "   <body>",
+                        "       <h1 class=\"name\"><h1>",
+                        "       <div class=\"numbers\"></div>",
+                        "   </body>",
+                        "</html>"
+                    ]},
+                    {"text": "And one with jQuery, just like you are used to:"},
+                    {"code": [
+                        "$(function() {",
+                        "   $('h1.name').text(data.name);",
+                        "   $([1, 2, 3]).each(function(i, n) {",
+                        "       $('div.numbers').append($('<p>').text('Number ' + n));",
+                        "   });",
+                        "});"
+                    ]},
+                    {"text": "This is exactly what nodequery does, all server side!"}
+            ]
     }
 ]
 
