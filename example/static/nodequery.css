@@ -24,13 +24,9 @@ body {
 	background: none repeat scroll 0 0 #FFFFFF;
 	-moz-border-radius: 5px 5px 5px 5px;
 	border: 1px solid #AFAFAF;
-	width: 960px;
+	width: 900px;
 	margin: 30px auto;
 	padding: 20px;
-}
-
-.content {
-	width: 700px;
 }
 
 .active {
