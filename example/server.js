@@ -1,10 +1,9 @@
 var http = require('http'),
 url = require('url'),
 path = require('path'),
-fs = require('fs'),
 dir = path.join(__dirname, '/'),
 nodequery = require(path.normalize(dir + '../lib/nodequery')),
-staticFiles = new (require('node-static')).Server(dir, {
+staticFiles = new (require('node-static')).Server('./example', {
 	cache: false
 });
 
@@ -14,7 +13,8 @@ nodequery.setup({
 	before: function() {
 		$('head').append('<link href="/static/nodequery.css" rel="stylesheet">').
 		append('<link href="http://fonts.googleapis.com/css?family=Cantarell" rel="stylesheet">').
-		append('<link href="/static/shCoreDefault.css" rel="stylesheet">');
+		append('<link href="/static/shCoreDefault.css" rel="stylesheet">').
+        append('<link href="https://github.com/andris9/highlight/raw/master/lib/vendor/highlight.js/styles/github.css" rel="stylesheet">');
 		var $header = $('div.header').
 		append('<img src="/static/nodejs.jpg" width="200" height="60"><span class="plus">+</span><img src="/static/jquery.png">'),
 		$nav = $('ul.nav'),

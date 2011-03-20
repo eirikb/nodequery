@@ -21,7 +21,7 @@ $(function() {
 				}
 			});
 			if (text) {
-				$content.append('<code>' + highlight(text) + '</code>');
+				$content.append($('<pre>').text(highlight(text)));
 			}
 		});
 		$('a:contains(Home)').addClass('active');
