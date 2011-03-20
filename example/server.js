@@ -22,6 +22,8 @@ nodequery.setup({
 
 		addNav('Home', '/');
 		addNav('About', '/about.html');
+        addNav('Faq', '/faq.html');
+        addNav('Under the hood', '/under-the-hood.html');
 		$header.append($nav);
 		//$nav.after($header);
 		$('div.wrapper').prepend($header);
