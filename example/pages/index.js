@@ -27,7 +27,7 @@ $(function() {
 	});
 
 	var $test = $('<div>').append($('<h2>').text('Proof of concept'));
-	$test.append('<p>This is a <i>proof of concept</i> using an alternative solution to classic templating.<br>' + 'The point is to have a clean and static markup, then do all dynamic code from the outside.<br/>' + 'This is how people usually use jQuery and plain CSS, doing the same as templating should be familiar and comforting.</p>');
+	$test.append('<p>This is a <i>proof of concept</i> framework using an alternative solution to classic templating.<br>' + 'The point is to have a clean and static markup, then do all dynamic code from the outside.<br/>' + 'This is how people usually use jQuery and plain CSS, doing the same as templating should be familiar and comforting.</p>');
 	$content.prepend($test);
 });
 

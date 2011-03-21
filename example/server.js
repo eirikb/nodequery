@@ -1,9 +1,9 @@
 var http = require('http'),
 url = require('url'),
 path = require('path'),
-dir = path.join('/', path.join(path.dirname(__filename) , '/')),
+dir = path.join('/', path.join(path.dirname(__filename), '/')),
 nodequery = require(path.normalize(dir + '../lib/nodequery')),
-staticFiles = new (require('node-static')).Server('./example');
+staticFiles = new(require('node-static')).Server('./example');
 
 nodequery.setup({
 	dir: dir + 'pages',
@@ -12,7 +12,7 @@ nodequery.setup({
 		$('head').append('<link href="/static/nodequery.css" rel="stylesheet">').
 		append('<link href="http://fonts.googleapis.com/css?family=Cantarell" rel="stylesheet">').
 		append('<link href="/static/shCoreDefault.css" rel="stylesheet">').
-        append('<link href="/static/github.css" rel="stylesheet">');
+		append('<link href="/static/github.css" rel="stylesheet">');
 		var $header = $('div.header').
 		append('<img src="/static/nodejs.jpg" width="200" height="60"><span class="plus">+</span><img src="/static/jquery.png">'),
 		$nav = $('ul.nav'),
@@ -22,12 +22,15 @@ nodequery.setup({
 
 		addNav('Home', '/');
 		addNav('About', '/about.html');
-        addNav('Faq', '/faq.html');
-        addNav('Under the hood', '/under-the-hood.html');
+		addNav('Faq', '/faq.html');
+		addNav('Under the hood', '/under-the-hood.html');
 		$header.append($nav);
 		//$nav.after($header);
 		$('div.wrapper').prepend($header);
 		$('.author > span').text('eirikb@eirikb.no');
+	},
+	after: function($) {
+		$('.forkme').attr('href', 'https://github.com/eirikb/nodequery').children('img').attr('alt', 'Fork me on Github!');
 	}
 });
 

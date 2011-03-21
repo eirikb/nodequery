@@ -4,6 +4,7 @@
         <title>NodeQuery</title>
     </head>
     <body>
+    <a class="forkme"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://d3nwyuy0nl342s.cloudfront.net/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"></a>
         <div class="wrapper">
             <div class="header">
             </div>
@@ -14,6 +15,12 @@
                     So (almost) all creds have to go to the <a href="https://github.com/tmpvar">author</a> of that library!</p>
                 <p>I'm basically just using their library in a slightly different way.<br>
                     They much intended it to do scraping of other web pages, but I use it to scrape and edit my own .html-files and display them accordingly.</p>
+                <h2>Perfrmance</h2>
+                <p>Performance of this framework? Blazing fast! At least in theory.<br>
+                    It will store a finished built DOM for each page in memory, as well as the dynamic function.
+                    So all the server has to do is to clone the DOM and throw the function at it, and everything is already in memory!<br>
+                    The rest is up to the function, as db calls, external API calls and heavy calcuation can make it slowish.<p>
+                <p>That said, the framework does not currently store the built DOM in memory, only the markup, because of troubleness.</p>
             </div>
             <div class="author">
                 <hr>
